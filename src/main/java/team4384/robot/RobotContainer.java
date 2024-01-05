@@ -36,15 +36,14 @@ public class RobotContainer {
     /* Subsystems */
     /* Subsystems */
     public final Swerve s_Swerve = new Swerve();
-    private Autonomous autonomous;
+    private RunAutonomous autonomous;
 
 
 
     /** The container for the robot. Contains subsystems, OI devices, and commands. */
     public RobotContainer() {
-        autonomous = new Autonomous(s_Swerve, "paths/Second Path.path");
+        autonomous = new RunAutonomous(s_Swerve, "paths/Second Path.path");
         /* Driver Buttons */
-        JoystickButton rotate = new JoystickButton(driver, Joystick.ButtonType.kTrigger.value);
         s_Swerve.setDefaultCommand(
             new TeleopSwerve(
                 s_Swerve, 
@@ -52,15 +51,13 @@ public class RobotContainer {
                 () -> -driver.getRawAxis(strafeAxis),
                 () -> driver.getRawAxis(rotationAxis),
                     () -> driver.getRawAxis(3),
-                    () -> false,
-                    rotate,
-                    new JoystickButton(driver, 3),
+                    new JoystickButton(driver, 1),
                     new JoystickButton(driver, 4)
             )
         );
     }
 
-    public Autonomous getAutonomous() {
+    public RunAutonomous getAutonomous() {
         return autonomous;
     }
 }

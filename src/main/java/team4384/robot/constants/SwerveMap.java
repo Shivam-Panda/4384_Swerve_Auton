@@ -9,7 +9,8 @@ import team4384.lib.util.COTSFalconSwerveConstants;
 import team4384.lib.util.SwerveModuleConstants;
 
 public class SwerveMap {
-    public static final int pigeonID = 1;
+    public static final double translateDeadband = 0.1;
+    public static final double rotateDeadband = 0.2;
     public static final boolean invertGyro = false; // Always ensure Gyro is CCW+ CW-
 
     public static final COTSFalconSwerveConstants chosenModule =  //TODO: This must be tuned to specific robot
