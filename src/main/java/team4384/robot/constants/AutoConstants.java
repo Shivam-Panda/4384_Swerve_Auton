@@ -1,5 +1,7 @@
 package team4384.robot.constants;
 
+import edu.wpi.first.math.controller.PIDController;
+import edu.wpi.first.math.controller.ProfiledPIDController;
 import edu.wpi.first.math.trajectory.TrapezoidProfile;
 
 public class AutoConstants { //TODO: The below constants are used in the example auto, and must be tuned to specific robot
@@ -16,4 +18,8 @@ public class AutoConstants { //TODO: The below constants are used in the example
     public static final TrapezoidProfile.Constraints kThetaControllerConstraints =
             new TrapezoidProfile.Constraints(
                     kMaxAngularSpeedRadiansPerSecond, kMaxAngularSpeedRadiansPerSecondSquared);
+
+    public static final PIDController X_controller = new PIDController(0.1, 0, 0);
+    public static final PIDController Y_controller = new PIDController(0.1, 0, 0);
+    public static final ProfiledPIDController rot_controller = new ProfiledPIDController(0.1, 0, 0, kThetaControllerConstraints);
 }

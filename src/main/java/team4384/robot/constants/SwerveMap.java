@@ -83,6 +83,7 @@ public class SwerveMap {
     /** Radians per Second */
     public static final double maxAngularVelocity = 0.5; //TODO: This must be tuned to specific robot
     public static final double maxRotSpeed = .3;
+    public static final double maxAcceleration = 0.5;
 
     /* Neutral Modes */
     public static final NeutralMode angleNeutralMode = NeutralMode.Coast;

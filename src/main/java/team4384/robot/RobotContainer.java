@@ -36,12 +36,13 @@ public class RobotContainer {
     /* Subsystems */
     /* Subsystems */
     public final Swerve s_Swerve = new Swerve();
+    private Autonomous autonomous;
 
 
 
     /** The container for the robot. Contains subsystems, OI devices, and commands. */
     public RobotContainer() {
-        Autonomous autonomous = new Autonomous(s_Swerve, s_Swerve.gyro);
+        autonomous = new Autonomous(s_Swerve, "paths/Second Path.path");
         /* Driver Buttons */
         JoystickButton rotate = new JoystickButton(driver, Joystick.ButtonType.kTrigger.value);
         s_Swerve.setDefaultCommand(
@@ -57,5 +58,9 @@ public class RobotContainer {
                     new JoystickButton(driver, 4)
             )
         );
+    }
+
+    public Autonomous getAutonomous() {
+        return autonomous;
     }
 }
